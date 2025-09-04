@@ -4,9 +4,10 @@
  * found in the LICENSE file.
  */
 
-import { RNOHContext, RNPackage, TurboModulesFactory } from '@rnoh/react-native-openharmony/ts'
+import { RNOHContext, TurboModulesFactory } from '@rnoh/react-native-openharmony/ts'
+import { RNOHPackage } from '@rnoh/react-native-openharmony'
 import type { TurboModule, TurboModuleContext } from '@rnoh/react-native-openharmony/ts'
-import { TM } from '@rnoh/react-native-openharmony/generated/ts'
+import { TM } from './generated/ts'
 import { RNOrientationLockerTurboModule } from './RNOrientationLockerTurboModule'
 
 
@@ -24,7 +25,7 @@ class RNOreitationLockerTurboModuleFactory extends  TurboModulesFactory {
   }
 }
 
-export class RNOrientationLockerPackage extends RNPackage {
+export class RNOrientationLockerPackage extends RNOHPackage {
   createTurboModulesFactory(ctx: TurboModuleContext): TurboModulesFactory {
     return new RNOreitationLockerTurboModuleFactory(ctx)
   }

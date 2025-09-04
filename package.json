@@ -1,6 +1,6 @@
 {
-    "name": "@react-native-oh-tpl/react-native-orientation-locker",
-    "version": "1.7.0-0.0.7-rc.2",
+    "name": "@react-native-ohos/react-native-orientation-locker",
+    "version": "1.7.0-rc.1",
     "summary": "A react-native module that can listen on orientation changing of device",
     "description": "A react-native module that can listen on orientation changing of device, get current orientation, lock to preferred orientation.",
     "homepage": "https://github.com/wonday/react-native-orientation-locker",
@@ -8,7 +8,10 @@
     "types": "index.d.ts",
     "repository": {
         "type": "git",
-        "url": "git://github.com/react-native-oh-library/react-native-orientation-locker.git"
+        "url": "git://github.com/chenyihao9/react-native-orientation-locker.git"
+    },
+    "scripts": {
+        "codegen-lib": "react-native codegen-lib-harmony --no-safety-check --npm-package-name react-native-orientation-locker --cpp-output-path ./harmony/orientation_locker/src/main/cpp/generated --ets-output-path ./harmony/orientation_locker/src/main/ets/generated --turbo-modules-spec-paths ./src  --arkts-components-spec-paths ./src"
     },
     "keywords": [
         "orientation",
@@ -40,16 +43,20 @@
         }
     },
     "devDependencies": {
-        "react": "16.13.1",
-        "react-native": "0.69.12",
-        "react-native-windows": "^0.63.3"
+        "react": "18.2.0",
+        "react-native": "0.73.5",
+        "react-native-windows": "0.73.8",
+        "metro": "0.82.5",
+        "memfs": "4.17.2",
+        "@rnoh/react-native-harmony-cli": "npm:@react-native-oh/react-native-harmony-cli@^0.0.27"
     },
     "harmony":{
         "alias":"react-native-orientation-locker",
-        "codegenConfig": {
-            "specPaths": [
-            "./src"
-            ]
+        "autolinking": {
+            "etsPackageClassName":"OrientationLockerPackage",
+            "cppPackageClassName":"OrientationLockerPackage",
+            "cmakeLibraryTargetName": "rnoh_orientation_locker", 
+            "ohPackageName": "@react-native-ohos/react-native-orientation-locker"
         }
     }
 }

@@ -5,7 +5,7 @@
  */
 
 import { TurboModule } from '@rnoh/react-native-openharmony/ts'
-import { TM } from '@rnoh/react-native-openharmony/generated/ts'
+import { TM } from './generated/ts'
 import window from '@ohos.window'
 import display from '@ohos.display'
 import { BusinessError } from '@kit.BasicServicesKit'
